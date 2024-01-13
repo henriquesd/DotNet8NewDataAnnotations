@@ -1,0 +1,107 @@
+@DotNet8NewDataAnnotations_HostAddress = https://localhost:7123
+
+# Valid Request
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "Surface Pro",
+  "price": 1000,
+  "category": "Computers",
+  "subCategory": "Laptops",
+  "description": "UHJvZHVjdCBkZXNjcmlwdGlvbg=="
+}
+
+###
+
+# Invalid Name
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "a",
+  "price": 1000,
+  "category": "Computers",
+  "subCategory": "Laptops",
+  "description": "UHJvZHVjdCBkZXNjcmlwdGlvbg=="
+}
+
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "aaaaaaaaaaaaaaaaaaaaa",
+  "price": 1000,
+  "category": "Computers",
+  "subCategory": "Laptops",
+  "description": "UHJvZHVjdCBkZXNjcmlwdGlvbg=="
+}
+
+###
+
+# Invalid Price
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "Surface Pro",
+  "price": 1,
+  "category": "Computers",
+  "subCategory": "Laptops",
+  "description": "UHJvZHVjdCBkZXNjcmlwdGlvbg=="
+}
+
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "Surface Pro",
+  "price": 1001,
+  "category": "Computers",
+  "subCategory": "Laptops",
+  "description": "UHJvZHVjdCBkZXNjcmlwdGlvbg=="
+}
+
+###
+
+# Invalid Category
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "Surface Pro",
+  "price": 1000,
+  "category": "Smartwatch",
+  "subCategory": "Laptops",
+  "description": "UHJvZHVjdCBkZXNjcmlwdGlvbg=="
+}
+
+###
+
+# Invalid SubCategory
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "Surface Pro",
+  "price": 1000,
+  "category": "Computers",
+  "subCategory": "Printers",
+  "description": "UHJvZHVjdCBkZXNjcmlwdGlvbg=="
+}
+
+###
+
+# Invalid Base64String
+POST {{DotNet8NewDataAnnotations_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "Surface Pro",
+  "price": 1000,
+  "category": "Computers",
+  "subCategory": "Laptops",
+  "description": "abc#"
+}
+
+###
